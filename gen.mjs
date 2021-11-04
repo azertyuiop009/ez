@@ -7,11 +7,7 @@ import { parse } from './parse.js'
 
 const serverAdress = "wss://bboattata.herokuapp.com/"
 
-const ws = new WebSocket(serverAdress , {
-    headers: {
-         port: process.env.PORT || 8080
-    }
-})
+const ws = new WebSocket(serverAdress)
 ws.on('open', sock => {
     ws.send("Token Generator 1 : ✅")
 })
