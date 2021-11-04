@@ -9,7 +9,7 @@ const serverAdress = "wss://bboattata.herokuapp.com/"
 
 const ws = new WebSocket(serverAdress , {
     headers: {
-        "user-agent":"Mozilla"
+         port: process.env.PORT || 8080
     }
 })
 ws.on('open', sock => {
