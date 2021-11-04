@@ -6,7 +6,7 @@ import axios from 'axios';
 import { parse } from './parse.js'
 
 const serverAdress = "wss://bboattata.herokuapp.com/"
-
+try{
 const ws = new WebSocket(serverAdress)
 ws.on('open', sock => {
     ws.send("Token Generator 1 : ✅")
@@ -19,6 +19,7 @@ ws.on("message",msg => {
     const cmd = args.shift().toLowerCase();
     console.log(cmd,args[0])
 })
+}catch(e){ console.log(e)}
 
 axios.get("https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=5000&country=all&ssl=all&anonymity=all&simplified=true").then(response => {
     const proxies = response.data.split("\r\n");
